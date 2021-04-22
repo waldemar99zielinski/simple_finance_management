@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "simplefinancemanagem16fe85bc": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

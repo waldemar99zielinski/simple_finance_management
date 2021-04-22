@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify6e86190efdb34-staging-182927-authRole",
+      "UnauthRoleArn": "arn:aws:iam::981347893543:role/amplify-amplify6e86190efdb34-staging-182927-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::981347893543:role/amplify-amplify6e86190efdb34-staging-182927-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-amplify6e86190efdb34-staging-182927-deployment",
+      "UnauthRoleName": "amplify-amplify6e86190efdb34-staging-182927-unauthRole",
+      "StackName": "amplify-amplify6e86190efdb34-staging-182927",
+      "StackId": "arn:aws:cloudformation:us-east-2:981347893543:stack/amplify-amplify6e86190efdb34-staging-182927/abef5f40-a398-11eb-9f39-0682845ca648",
+      "AmplifyAppId": "d2pfe5wdwy6tvg"
+    },
+    "categories": {
+      "auth": {
+        "simplefinancemanagem16fe85bc": {}
+      }
+    }
+  }
+}
