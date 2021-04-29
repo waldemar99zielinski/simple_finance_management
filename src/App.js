@@ -7,68 +7,35 @@ import {
   createNote as createNoteMutation,
   deleteNote as deleteNoteMutation,
 } from "./graphql/mutations";
-
-const initialFormState = { name: "", description: "" };
-
+//Components
+import Navbar from "./navbar/index";
+import Home from "./home/index";
+import AddTransaction from "./add-transaction/index";
+//navigation
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
-  const [notes, setNotes] = useState([]);
-  const [formData, setFormData] = useState(initialFormState);
-
-  useEffect(() => {
-    fetchNotes();
-  }, []);
-
-  async function fetchNotes() {
-    const apiData = await API.graphql({ query: listNotes });
-    setNotes(apiData.data.listNotes.items);
-  }
-
-  async function createNote() {
-    if (!formData.name || !formData.description) return;
-    await API.graphql({
-      query: createNoteMutation,
-      variables: { input: formData },
-    });
-    setNotes([...notes, formData]);
-    setFormData(initialFormState);
-  }
-
-  async function deleteNote({ id }) {
-    const newNotesArray = notes.filter((note) => note.id !== id);
-    setNotes(newNotesArray);
-    await API.graphql({
-      query: deleteNoteMutation,
-      variables: { input: { id } },
-    });
-  }
-
   return (
-    <div className="App">
-      <h1>My Notes App</h1>
-      <input
-        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-        placeholder="Note name"
-        value={formData.name}
-      />
-      <input
-        onChange={(e) =>
-          setFormData({ ...formData, description: e.target.value })
-        }
-        placeholder="Note description"
-        value={formData.description}
-      />
-      <button onClick={createNote}>Create Note</button>
-      <div style={{ marginBottom: 30 }}>
-        {notes.map((note) => (
-          <div key={note.id || note.name}>
-            <h2>{note.name}</h2>
-            <p>{note.description}</p>
-            <button onClick={() => deleteNote(note)}>Delete note</button>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content-container">
+          <div className="content-container-max-width">
+            <Switch>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/add-transaction">
+                <AddTransaction />
+              </Route>
+              <Route path="/stats">
+                <h2>STATS</h2>
+              </Route>
+            </Switch>
           </div>
-        ))}
+        </div>
       </div>
-      {/* <AmplifySignOut /> */}
-    </div>
+    </Router>
   );
 }
 

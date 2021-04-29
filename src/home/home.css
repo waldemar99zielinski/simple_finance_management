@@ -1,0 +1,12 @@
+.card {
+  width: 100%;
+  border-radius: 0px !important;
+}
+.balance-text {
+  text-align: end;
+  font-size: x-large;
+  font-weight: bolder;
+}
+.table {
+  margin-top: 15px;
+}
